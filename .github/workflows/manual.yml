@@ -1,0 +1,22 @@
+name: Teste Flask  
+
+on: [push]  
+
+jobs:  
+  build:  
+    runs-on: ubuntu-latest  
+
+    steps:  
+      - name: Checkout do código  
+        uses: actions/checkout@v2  
+
+      - name: Configurar Python  
+        uses: actions/setup-python@v3  
+        with:  
+          python-version: "3.8"  
+
+      - name: Instalar dependências  
+        run: pip install flask  
+
+      - name: Rodar testes  
+        run: python -c "import flask; print('Flask instalado corretamente')"
